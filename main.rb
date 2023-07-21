@@ -6,3 +6,9 @@ class Node
         @next = nil 
     end 
 end
+
+class LinkedList
+
+    def initialize(value)
+        @head = Node.new(value)
+    end
