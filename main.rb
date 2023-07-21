@@ -26,15 +26,16 @@ class LinkedList
 
 
     def find(value)
-        node = head 
-        
+        node = head
+        return node if node.value == value
+            
         while node.next !=nil 
-            node = node.next
-            if node.value == value 
-                return node
-            else 
-                return false
-            end 
+          node = node.next
+          if node.value == value 
+            return node
+          else 
+            return false
+          end 
         end 
     
     end
@@ -44,6 +45,6 @@ end
 list = LinkedList.new(2)
 list.append(10)
 list.append(20)
-p list.find(12)
+p list.find(2)
 
 
