@@ -16,24 +16,24 @@ class LinkedList
     end
 
     def append(value)
-        node = head 
+        node_to_add = head 
 
-        while node.next !=nil 
-            node = node.next 
+        while node_to_add.next !=nil 
+            node_to_add = node_to_add.next 
         end 
 
-        node.next = Node.new(value)
+        node_to_add.next = Node.new(value)
     end
 
 
     def find(value)
-        node = head
-        return node if node.value == value
+        return head if head.value == value
+        node_to_find = head
             
-        while node.next !=nil 
-          node = node.next
-          if node.value == value 
-            return node
+        while node_to_find.next !=nil 
+          node_to_find = node_to_find.next
+          if node_to_find.value == value 
+            return node_to_find
           else 
             return false
           end 
@@ -42,18 +42,18 @@ class LinkedList
     end
 
     def deletion(value)
-       node = head 
-       if node.value == value 
-        head = node.next 
+       node_to_delete = head 
+       if node_to_delete.value == value 
+        head = node_to_delete.next 
        else 
-            while node.next.value != value && node.next != nil 
-                if node.next.value == value || node.next == nil 
-                    node.next = node.next.next 
+            while node_to_delete.next.value != value && node_to_delete.next != nil 
+                if node_to_delete.next.value == value || node_to_delete.next == nil 
+                    node_to_delete.next = node_to_deletee.next.next 
                 else 
-                    node = node.next 
+                    node_to_delete = node_to_delete.next 
                 end 
             end
-            node.next = node.next.next
+            node_to_delete.next = node_to_delete.next.next
         end
     end
 
@@ -69,9 +69,9 @@ class LinkedList
     end
         
     def first 
-        first = head.dup
-        first.next = nil
-        p first
+        first_node = head.dup
+        first_node.next = nil
+        p first_node
     end
 
 end
