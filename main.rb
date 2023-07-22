@@ -56,16 +56,28 @@ class LinkedList
             node.next = node.next.next
         end
     end
-    
-        
 
+    def size
+       # binding.pry
+        node = head 
+        number = 1
+        while node.next != nil 
+            node = node.next 
+            number += 1 
+        end 
+        puts number
+    end
+        
+    def first 
+        first = head.dup
+        first.next = nil
+        p first
+    end
 
 end
 
 list = LinkedList.new(2)
 list.append(10)
-list.append(20)  
-list.deletion(10)
-p list
-
+list.append(20)
+list.first
 
