@@ -1,3 +1,4 @@
+require 'pry-byebug'
 class Node
     attr_accessor :value, :next
 
@@ -40,11 +41,31 @@ class LinkedList
     
     end
 
+    def deletion(value)
+       node = head 
+       if node.value == value 
+        head = node.next 
+       else 
+            while node.next.value != value && node.next != nil 
+                if node.next.value == value || node.next == nil 
+                    node.next = node.next.next 
+                else 
+                    node = node.next 
+                end 
+            end
+            node.next = node.next.next
+        end
+    end
+    
+        
+
+
 end
 
 list = LinkedList.new(2)
 list.append(10)
-list.append(20)
-p list.find(2)
+list.append(20)  
+list.deletion(10)
+p list
 
 
