@@ -6,6 +6,7 @@ class Node
         @value = value
         @next = nil
     end 
+
 end
 
 class LinkedList
@@ -74,10 +75,21 @@ class LinkedList
         p first_node
     end
 
+    def to_s
+        result = []
+        node_to_print = @head
+      
+        while node_to_print.next != nil 
+          result << node_to_print.value
+          node_to_print = node_to_print.next
+        end
+        result << node_to_print.value
+        return "#{result}"
+      end
 end
 
 list = LinkedList.new(2)
 list.append(10)
 list.append(20)
-list.first
+puts list
 
